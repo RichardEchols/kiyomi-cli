@@ -1459,12 +1459,11 @@ class Shell:
         self._background_tasks.clear()
 
 
-_KIMI_BLUE = "dodger_blue1"
+_KIYOMI_PINK = "#ff3da0"
 _LOGO = f"""\
-[{_KIMI_BLUE}]\
-▐█▛█▛█▌
-▐█████▌\
-[{_KIMI_BLUE}]\
+[{_KIYOMI_PINK}] ❀ ❀[/]
+[#ffb3d9]❀[/][#fff0f7]✿[/][#ffb3d9]❀[/]
+[{_KIYOMI_PINK}] ❀ ❀[/]\
 """
 
 
@@ -1534,7 +1533,7 @@ def _print_welcome_info(name: str, info_items: list[WelcomeInfoItem]) -> None:
     console.print(
         Panel(
             Group(*rows),
-            border_style=_KIMI_BLUE,
+            border_style=_KIYOMI_PINK,
             expand=False,
             padding=(1, 2),
         )
