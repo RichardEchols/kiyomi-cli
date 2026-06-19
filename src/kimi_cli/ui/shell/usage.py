@@ -49,7 +49,7 @@ async def usage(app: Shell, args: str):
 
     usage_url = _usage_url(app.soul.runtime.llm.model_config)
     if usage_url is None:
-        console.print("[yellow]Usage is available on Kimi Code platform only.[/yellow]")
+        console.print("[yellow]Usage is available on Kiyomi platform only.[/yellow]")
         return
 
     with console.status("[cyan]Fetching usage...[/cyan]"):
@@ -61,7 +61,7 @@ async def usage(app: Shell, args: str):
             if e.status == 401:
                 message = "Authorization failed. Please check your API key."
             elif e.status == 404:
-                message = "Usage endpoint not available. Try Kimi for Coding."
+                message = "Usage endpoint not available. Try Kiyomi."
             console.print(f"[red]{message}[/red]")
             return
         except TimeoutError:

@@ -404,7 +404,7 @@ class Shell:
         else:
             self._start_background_task(self._auto_update())
 
-        _print_welcome_info(self.soul.name or "Kimi Code CLI", self._welcome_info)
+        _print_welcome_info(self.soul.name or "Kiyomi", self._welcome_info)
 
         # Start telemetry periodic flush and disk retry
         from kimi_cli.telemetry import get_sink
@@ -1481,7 +1481,7 @@ class WelcomeInfoItem:
 
 
 def _print_welcome_info(name: str, info_items: list[WelcomeInfoItem]) -> None:
-    head = Text.from_markup("Welcome to Kimi Code CLI!")
+    head = Text.from_markup("Welcome to Kiyomi!")
     help_text = Text.from_markup("[grey50]Send /help for help information.[/grey50]")
 
     # Use Table for precise width control

@@ -442,7 +442,7 @@ def changelog(app: Shell, args: str):
 @registry.command
 @shell_mode_registry.command
 async def feedback(app: Shell, args: str):
-    """Submit feedback to make Kimi Code CLI better"""
+    """Submit feedback to make Kiyomi better"""
     import platform
     import webbrowser
 
@@ -699,7 +699,7 @@ def theme(app: Shell, args: str):
 
 @registry.command
 def web(app: Shell, args: str):
-    """Open Kimi Code Web UI in browser"""
+    """Open Kiyomi Web UI in browser"""
     from kimi_cli.telemetry import track
 
     track("web_opened")
@@ -710,7 +710,7 @@ def web(app: Shell, args: str):
 
 @registry.command
 def vis(app: Shell, args: str):
-    """Open Kimi Agent Tracing Visualizer in browser"""
+    """Open Kiyomi Tracing Visualizer in browser"""
     from kimi_cli.telemetry import track
 
     track("vis_opened")
@@ -721,7 +721,7 @@ def vis(app: Shell, args: str):
 
 @registry.command
 async def upgrade(app: Shell, args: str):
-    """Install Kimi Code — the faster successor (migrates your config & sessions)"""
+    """Install Kiyomi — the faster successor (migrates your config & sessions)"""
     from kimi_cli.telemetry import track
     from kimi_cli.ui.shell.migration_nudge import (
         install_command,
@@ -734,7 +734,7 @@ async def upgrade(app: Shell, args: str):
     cmd = install_command(sys.platform)
     run_cmd = install_run_command(sys.platform)
     console.print(
-        "[bold]This will install the new Kimi Code by running:[/bold]\n"
+        "[bold]This will install the new Kiyomi by running:[/bold]\n"
         f"  [cyan]{cmd}[/cyan]\n"
         "Your existing config & sessions will be migrated automatically."
     )
@@ -754,7 +754,7 @@ async def upgrade(app: Shell, args: str):
 
     await app._run_shell_command(run_cmd)  # pyright: ignore[reportPrivateUsage]
     console.print(
-        "\n[green]The new Kimi Code is installed ✓[/green]  "
+        "\n[green]The new Kiyomi is installed ✓[/green]  "
         "Your config & sessions were migrated automatically.\n"
         "Open a [bold]new terminal[/bold] and run [bold]kimi[/bold] to start it.\n"
         f"[grey50](Verify with `{verify_command(sys.platform)}` — it should point "

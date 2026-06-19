@@ -1,4 +1,4 @@
-"""Kimi Agent Tracing Visualizer application."""
+"""Kiyomi Tracing Visualizer application."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def create_app() -> FastAPI:
     }
 
     application = FastAPI(
-        title="Kimi Agent Tracing Visualizer",
+        title="Kiyomi Tracing Visualizer",
         docs_url=None,
         separate_input_output_schemas=False,
     )

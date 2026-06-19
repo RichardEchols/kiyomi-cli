@@ -1,4 +1,4 @@
-"""Session process management for Kimi CLI web interface."""
+"""Session process management for Kiyomi web interface."""
 
 from __future__ import annotations
 

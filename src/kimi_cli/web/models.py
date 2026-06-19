@@ -1,4 +1,4 @@
-"""Kimi Code CLI Web UI data models."""
+"""Kiyomi Web UI data models."""
 
 from __future__ import annotations
 

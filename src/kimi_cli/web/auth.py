@@ -1,4 +1,4 @@
-"""Auth helpers and middleware for Kimi CLI web."""
+"""Auth helpers and middleware for Kiyomi web."""
 
 from __future__ import annotations
 

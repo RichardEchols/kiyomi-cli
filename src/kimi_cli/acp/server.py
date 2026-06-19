@@ -87,7 +87,7 @@ class ACPServer:
                     "terminal-auth": {
                         "command": command,
                         "args": terminal_args,
-                        "label": "Kimi Code Login",
+                        "label": "Kiyomi Login",
                         "env": {},
                         "type": "terminal",
                     }
@@ -126,7 +126,7 @@ class ACPServer:
         return None
 
     def _check_auth(self) -> None:
-        """Check if Kimi Code authentication is complete. Raise AUTH_REQUIRED if not."""
+        """Check if Kiyomi authentication is complete. Raise AUTH_REQUIRED if not."""
         reason = self._check_token_usable()
         if reason:
             auth_methods_data: list[dict[str, Any]] = []

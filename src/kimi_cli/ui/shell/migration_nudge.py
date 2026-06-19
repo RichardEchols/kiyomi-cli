@@ -39,7 +39,7 @@ def verify_command(platform: str) -> str:
 
 
 def kimi_code_installed(home: Path | None = None) -> bool:
-    """True if the standalone Kimi Code is installed (its data dir ~/.kimi-code exists)."""
+    """True if the standalone Kiyomi is installed (its data dir ~/.kimi-code exists)."""
     home = home or Path.home()
     return (home / ".kimi-code").is_dir()
 
@@ -66,9 +66,9 @@ def should_show_exit_nudge(marker: Path, today: str) -> bool:
 
 
 def welcome_card_text() -> Text:
-    """Welcome-screen card nudging users to upgrade (shown when Kimi Code is NOT installed)."""
+    """Welcome-screen card nudging users to upgrade (shown when Kiyomi is NOT installed)."""
     return Text.assemble(
-        "The new Kimi Code is here — rebuilt to be faster and more powerful.\n",
+        "The new Kiyomi is here — rebuilt to be faster and more powerful.\n",
         "Run ",
         ("/upgrade", "bold"),
         "; your config & sessions carry over.",
@@ -76,9 +76,9 @@ def welcome_card_text() -> Text:
 
 
 def already_installed_text(platform: str) -> Text:
-    """Welcome-screen note shown when Kimi Code IS already installed on this machine."""
+    """Welcome-screen note shown when Kiyomi IS already installed on this machine."""
     return Text.assemble(
-        "The new Kimi Code is already installed. Start it in a fresh terminal with ",
+        "The new Kiyomi is already installed. Start it in a fresh terminal with ",
         ("kimi", "bold"),
         " (verify: ",
         (verify_command(platform), "cyan"),
@@ -90,7 +90,7 @@ def exit_nudge_text(platform: str) -> Text:
     """Throttled tip printed on graceful exit."""
     return Text.assemble(
         ("Tip: ", "yellow"),
-        "The new Kimi Code is rebuilt to be faster and more powerful.\n",
+        "The new Kiyomi is rebuilt to be faster and more powerful.\n",
         "Install: ",
         (install_command(platform), "cyan"),
         ("  (or run /upgrade next time)", "grey50"),
@@ -106,7 +106,7 @@ def print_migration_goodbye(
 ) -> None:
     """Print the farewell ("Bye!") plus, at most once per day, the migration tip.
 
-    Skipped entirely (only "Bye!") if Kimi Code is already installed.
+    Skipped entirely (only "Bye!") if Kiyomi is already installed.
     `home`/`today`/`platform` are injectable for testing; in production they default
     to the real values.
     """

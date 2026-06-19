@@ -565,7 +565,7 @@ def _apply_kimi_code_config(
 ) -> None:
     platform = get_platform_by_id(KIMI_CODE_PLATFORM_ID)
     if platform is None:
-        raise OAuthError("Kimi Code platform not found.")
+        raise OAuthError("Kiyomi platform not found.")
 
     provider_key = managed_provider_key(platform.id)
     config.providers[provider_key] = LLMProvider(
@@ -619,7 +619,7 @@ async def login_kimi_code(
 
     platform = get_platform_by_id(KIMI_CODE_PLATFORM_ID)
     if platform is None:
-        yield OAuthEvent("error", "Kimi Code platform is unavailable.")
+        yield OAuthEvent("error", "Kiyomi platform is unavailable.")
         return
 
     auth: DeviceAuthorization

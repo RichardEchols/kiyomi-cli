@@ -370,7 +370,7 @@ def kimi(
 
     from kimi_cli.utils.proctitle import init_process_name
 
-    init_process_name("Kimi Code")
+    init_process_name("Kiyomi")
 
     if ctx.invoked_subcommand is not None:
         return  # skip rest if a subcommand is invoked
@@ -1008,7 +1008,7 @@ def logout(
 def term(
     ctx: typer.Context,
 ) -> None:
-    """Run Toad TUI backed by Kimi Code CLI ACP server."""
+    """Run Toad TUI backed by Kiyomi ACP server."""
     from .toad import run_term
 
     run_term(ctx)
@@ -1016,7 +1016,7 @@ def term(
 
 @cli.command()
 def acp():
-    """Run Kimi Code CLI ACP server."""
+    """Run Kiyomi ACP server."""
     from kimi_cli.acp import acp_main
 
     acp_main()
@@ -1058,7 +1058,7 @@ def web_worker(session_id: str) -> None:
 
     from kimi_cli.utils.proctitle import set_process_title
 
-    set_process_title("kimi-code-worker")
+    set_process_title("kiyomi-worker")
 
     from kimi_cli.app import enable_logging
     from kimi_cli.web.runner.worker import run_worker

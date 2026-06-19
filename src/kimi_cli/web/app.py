@@ -1,4 +1,4 @@
-"""Kimi Code CLI Web UI application."""
+"""Kiyomi Web UI application."""
 
 import os
 import secrets
@@ -120,7 +120,7 @@ def create_app(
     max_public_path_depth: int | None = None,
     lan_only: bool | None = None,
 ) -> FastAPI:
-    """Create the FastAPI application for Kimi CLI web UI."""
+    """Create the FastAPI application for Kiyomi web UI."""
 
     env_token = os.environ.get(ENV_SESSION_TOKEN) or None
     env_origins = normalize_allowed_origins(os.environ.get(ENV_ALLOWED_ORIGINS))
@@ -164,7 +164,7 @@ def create_app(
             await runner.stop()
 
     application = FastAPI(
-        title="Kimi Code CLI Web Interface",
+        title="Kiyomi Web Interface",
         docs_url=None,
         lifespan=lifespan,
         separate_input_output_schemas=False,

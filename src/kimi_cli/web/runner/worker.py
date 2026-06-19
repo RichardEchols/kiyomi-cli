@@ -72,7 +72,7 @@ def main() -> None:
     from kimi_cli.utils.proxy import normalize_proxy_env
 
     normalize_proxy_env()
-    set_process_title("kimi-code-worker")
+    set_process_title("kiyomi-worker")
 
     if len(sys.argv) < 2:
         print("Usage: python -m kimi_cli.web.runner.worker <session_id>", file=sys.stderr)
