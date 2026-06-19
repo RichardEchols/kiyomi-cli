@@ -71,7 +71,6 @@ pykaos = { workspace = true }
 kimi-cli = { workspace = true }
 
 [project.scripts]
-kiyomikode = "kimi_cli.__main__:main"
 kiyomi-cli = "kimi_cli.__main__:main"
 
 [tool.ruff]
