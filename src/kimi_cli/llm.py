@@ -167,8 +167,20 @@ def create_llm(
                 base_url=provider.base_url,
                 api_key=resolved_api_key,
                 reasoning_key=reasoning_key,
+                # Local cluster (Kiyomi on Kimi-K2.7) generates slowly; allow long turns.
+                timeout=float(os.getenv("KIMI_MODEL_TIMEOUT", "1800")),
                 default_headers=dict(provider.custom_headers) if provider.custom_headers else None,
             )
+            # Heavy-reasoning local models write whole files in one tool call. Without a
+            # generous token cap the tool call is truncated mid-stream and the harness
+            # sees a "think-only" empty response (kosong APIEmptyResponseError). Give it
+            # room; max_tokens is only a ceiling, so short turns stay short.
+            _gen_kwargs: OpenAILegacy.GenerationKwargs = {
+                "max_tokens": int(os.getenv("KIMI_MODEL_MAX_TOKENS", "16384")),
+            }
+            if temperature := os.getenv("KIMI_MODEL_TEMPERATURE"):
+                _gen_kwargs["temperature"] = float(temperature)
+            chat_provider = chat_provider.with_generation_kwargs(**_gen_kwargs)
         case "openai_responses":
             from kosong.contrib.chat_provider.openai_responses import OpenAIResponses
 
