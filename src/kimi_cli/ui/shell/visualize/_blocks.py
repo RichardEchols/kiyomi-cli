@@ -63,6 +63,23 @@ def _bullet_frame_for(elapsed: float) -> str:
     return _BULLET_FRAMES[idx]
 
 
+# Kiyomi working verbs — rotate while the agent thinks (Claude-style).
+_KIYOMI_VERBS = (
+    "Cooking", "Working", "Creating", "Building", "Crafting", "Brewing",
+    "Reasoning", "Conjuring", "Synthesizing", "Pondering", "Weaving",
+    "Forging", "Computing", "Manifesting", "Seeking the kingdom", "Tinkering",
+)
+_SPARK_FRAMES = ("✶", "✷", "✸", "✹", "✺", "✹", "✸", "✷")
+
+
+def _kiyomi_verb(elapsed: float) -> str:
+    return _KIYOMI_VERBS[int(elapsed / 2.8) % len(_KIYOMI_VERBS)]
+
+
+def _kiyomi_spark(elapsed: float) -> str:
+    return _SPARK_FRAMES[int(elapsed / 0.14) % len(_SPARK_FRAMES)]
+
+
 def _truncate_to_display_width(line: str, max_width: int) -> str:
     """Truncate *line* so its terminal display width fits within *max_width*.
 
@@ -301,7 +318,7 @@ class _ContentBlock:
         count_str = f"{format_token_count(int(self._token_count))} tokens"
 
         self._spinner.text = Text.assemble(
-            ("Composing...", ""),
+            (f"{_kiyomi_verb(elapsed)}…", ""),
             (f" {elapsed_str}", "grey50"),
             (f" · {count_str}", "grey50"),
         )
@@ -322,7 +339,7 @@ class _ContentBlock:
         elapsed_str = format_elapsed(elapsed)
         count_str = f"{format_token_count(int(self._token_count))} tokens"
         self._spinner.text = Text.assemble(
-            ("Thinking...", ""),
+            (f"{_kiyomi_verb(elapsed)}…", ""),
             (f" {elapsed_str}", "grey50"),
             (f" · {count_str}", "grey50"),
         )
@@ -344,7 +361,8 @@ class _ContentBlock:
         frame = _bullet_frame_for(elapsed)
 
         parts: list[tuple[str, str | Style]] = [
-            ("Thinking", "italic"),
+            (f"{_kiyomi_spark(elapsed)} ", "#ff3da0"),
+            (_kiyomi_verb(elapsed), "italic"),
             (f" {frame}", "cyan"),
             (f"  {elapsed_str}", "grey50"),
             (f" · {count_str}", "grey50"),

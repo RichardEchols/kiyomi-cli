@@ -1460,10 +1460,12 @@ class Shell:
 
 
 _KIYOMI_PINK = "#ff3da0"
-_LOGO = f"""\
-[{_KIYOMI_PINK}] ❀ ❀[/]
-[#ffb3d9]❀[/][#fff0f7]✿[/][#ffb3d9]❀[/]
-[{_KIYOMI_PINK}] ❀ ❀[/]\
+_LOGO = """\
+[#ff3da0]  ╲▆▆╱[/]
+[#e84bc8] ▟█████▙[/]
+[#a85be0] ▜██[/][#fff0f7]◉[/][#a85be0]██▛[/]
+[#5a8af0]   ╲┃╱[/]
+[#00d7ff]    ┃[/]\
 """
 
 
